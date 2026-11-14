@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sovereign Dan | Free Hinge Profile Review</title>
-<meta name="description" content="Send me your Hinge profile and get an honest, on camera review for free. Your review gets featured on my socials." />
+<title>Sovereign Dan | Turn Your Profile Into Dates</title>
+<meta name="description" content="Send me your Hinge profile and chats. I score them personally and review them on camera, for free." />
 <!-- CONFIRM DOMAIN: sovereigndan.com is assumed. Change these four URLs if the live domain is different. -->
 <link rel="canonical" href="https://sovereigndan.com/" />
 <meta property="og:url" content="https://sovereigndan.com/" />
 
-<meta property="og:title" content="Find out why she's swiping past you" />
-<meta property="og:description" content="Free Hinge profile reviews, on camera. Send me your profile and get my honest take and your top fixes." />
+<meta property="og:title" content="Turn your profile into dates" />
+<meta property="og:description" content="A free Hinge scorecard plus a profile and chat review, done personally by me." />
 <meta property="og:image" content="https://sovereigndan.com/assets/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -28,7 +28,7 @@
 <!-- Remove this once the page is ready to be found. -->
 <meta name="robots" content="noindex" />
 
-<link rel="stylesheet" href="css/styles.css?v=41" />
+<link rel="stylesheet" href="css/styles.css?v=43" />
 </head>
 <body>
 
@@ -39,10 +39,17 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container hero-inner">
-    <h1 id="hero-heading" class="hero-headline">Find out why she's swiping past you</h1>
-    <p class="hero-subheadline">Send me your Hinge profile and I'll review it <b>on camera, for free</b>. You get my honest take and your <b>top fixes</b>. In return, your review gets posted on my socials.</p>
+    <p class="hero-eyebrow">Free Hinge Review</p>
+    <h1 id="hero-heading" class="hero-headline">Turn your profile into dates</h1>
+    <p class="hero-subheadline">Send me your Hinge profile and a few of your chats. I'll score them personally and review them <b>on camera, for free</b>. In return, your review gets posted on my socials.</p>
 
-    <p class="hero-form-label" id="apply">Takes about 2 minutes. Have your profile screenshots ready.</p>
+    <ul class="hero-offer" aria-label="What your free review includes">
+      <li><span class="hero-offer-num">01</span><span><b>Your scorecard</b>Scored by me, with your top fixes</span></li>
+      <li><span class="hero-offer-num">02</span><span><b>Profile review</b>Every photo and prompt</span></li>
+      <li><span class="hero-offer-num">03</span><span><b>Chat review</b>Where your conversations die</span></li>
+    </ul>
+
+    <p class="hero-form-label" id="apply">Takes about 3 minutes. Have your profile and chat screenshots ready.</p>
 
     <div class="multistep-form" id="applyForm">
 
@@ -52,7 +59,7 @@
           <div class="form-progress-fill" id="formProgressFill"></div>
         </div>
         <div class="form-progress-label">
-          <span id="formStepLabel">Step 1 of 4</span>
+          <span id="formStepLabel">Step 1 of 5</span>
         </div>
       </div>
 
@@ -104,28 +111,46 @@
           </div>
         </div>
 
-        <!-- STEP 3: SCREENSHOTS -->
+        <!-- STEP 3: PROFILE SCREENSHOTS -->
         <div class="form-step" data-step="3">
           <p class="form-step-kicker">Your profile</p>
           <h3 class="form-step-title">Upload Your Profile</h3>
           <p class="form-step-note">Open Hinge, go to your profile, tap <b>View</b>, and screenshot it from top to bottom: every photo and every prompt. Usually 4 to 8 screenshots.</p>
-          <div class="form-field upload-field" id="uploadField">
-            <label class="upload-drop" for="q_files">
-              <input type="file" id="q_files" name="q_files" accept="image/*" multiple />
+          <div class="form-field upload-field" data-upload="profile">
+            <label class="upload-drop">
+              <input type="file" name="files_profile" accept="image/*" multiple />
               <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
-              <span class="upload-drop-title">Tap to add screenshots</span>
+              <span class="upload-drop-title">Tap to add profile screenshots</span>
               <span class="upload-drop-sub">2 to 10 images</span>
             </label>
-            <div class="upload-grid" id="uploadGrid"></div>
-            <p class="upload-error" id="uploadError" role="alert"></p>
+            <div class="upload-grid"></div>
+            <p class="upload-error" role="alert"></p>
           </div>
         </div>
 
-        <!-- STEP 4: DETAILS AND CONSENT. Submitting this step uploads everything. -->
+        <!-- STEP 4: CHAT SCREENSHOTS (optional) -->
         <div class="form-step" data-step="4">
+          <p class="form-step-kicker">Your chats</p>
+          <h3 class="form-step-title">Upload Your Chats</h3>
+          <p class="form-step-note">Screenshot 1 to 3 Hinge conversations, from your first message to where it stopped. Ones that died are the most useful. No chats yet? Skip this step.</p>
+          <div class="form-field upload-field" data-upload="chat">
+            <label class="upload-drop">
+              <input type="file" name="files_chat" accept="image/*" multiple />
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 16V4m0 0-4 4m4-4 4 4M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+              <span class="upload-drop-title">Tap to add chat screenshots</span>
+              <span class="upload-drop-sub">Optional, up to 8 images</span>
+            </label>
+            <div class="upload-grid"></div>
+            <p class="upload-error" role="alert"></p>
+          </div>
+          <p class="form-step-note upload-privacy">I blur her name and photos before anything is posted.</p>
+        </div>
+
+        <!-- STEP 5: DETAILS AND CONSENT. Submitting this step uploads everything. -->
+        <div class="form-step" data-step="5">
           <p class="form-step-kicker">Last step</p>
-          <h3 class="form-step-title">Where Do I Send Your Review?</h3>
-          <p class="form-step-note">I'll email you the link when your review goes live.</p>
+          <h3 class="form-step-title">Where Do I Send Your Scorecard?</h3>
+          <p class="form-step-note">I'll email you your scorecard, and the link to your review when it goes live.</p>
           <div class="form-field">
             <label for="q1">What's your first name?</label>
             <input type="text" id="q1" name="q1" placeholder="e.g. Michael" autocomplete="given-name" required />
@@ -150,7 +175,7 @@
           <div class="form-field form-consent">
             <label class="consent-option">
               <input type="checkbox" id="q_feature" name="q_feature" value="yes" required />
-              <span>I agree that my profile screenshots can be shown and discussed in a review video on Sovereign Dan's Instagram, TikTok and YouTube. I'm 18 or older and these are my own photos. <a href="terms.html" target="_blank" rel="noopener">Terms</a></span>
+              <span>I agree that my profile and chat screenshots can be shown and discussed in a review video on Sovereign Dan's Instagram, TikTok and YouTube. I'm 18 or older and these are my own photos. <a href="terms.html" target="_blank" rel="noopener">Terms</a></span>
             </label>
           </div>
           <div class="form-field">
@@ -177,11 +202,11 @@
           <svg viewBox="0 0 24 24" width="44" height="44" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.5" d="M5 12.5 10 17 19 7"/></svg>
         </div>
         <h3 class="scorecard-results-heading" id="successHeading">You're in.</h3>
-        <p class="scorecard-bottleneck-callout" id="successText">Your profile is in my review queue. When your review goes live, I'll email you the link.</p>
+        <p class="scorecard-bottleneck-callout" id="successText">Your profile is in my review queue. I'll email you your scorecard, and the link to your review when it goes live.</p>
 
         <div class="scorecard-panel">
           <h4 class="scorecard-panel-title">Don't Miss Your Review</h4>
-          <p class="scorecard-panel-text">Follow me so you see it the day it goes up, plus every other review I post.</p>
+          <p class="scorecard-panel-text">Follow me so you see your review the day it goes up, plus every other review I post.</p>
           <div class="success-socials">
             <a class="btn btn-primary" href="https://www.instagram.com/sovereigndan1/" target="_blank" rel="noopener noreferrer" data-social="instagram">Instagram</a>
             <a class="btn btn-ghost" href="https://www.tiktok.com/@sovereigndan" target="_blank" rel="noopener noreferrer" data-social="tiktok">TikTok</a>
@@ -204,10 +229,10 @@
         <ul class="qualify-list qualify-list-positive">
           <li>You're on Hinge and getting fewer likes than you think you should</li>
           <li>Your matches rarely turn into conversations or dates</li>
+          <li>You want to know where your chats are losing her</li>
           <li>Nobody has ever given you an honest opinion of your profile</li>
           <li>You're fine with your profile being shown in a video</li>
-          <li>You'll actually make the changes</li>
-        </ul>
+                  </ul>
       </div>
       <div class="qualify-panel qualify-notfor reveal reveal-right">
         <h3>This Isn't For You If...</h3>
@@ -428,8 +453,8 @@
         <p class="pillar-label">Prompts</p>
       </div>
       <div class="pillar reveal reveal-scale">
-        <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <p class="pillar-label">Profile Basics</p>
+        <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h12v8H7l-4 3z"/><path d="M9 16h8l4 3V9h-3"/></svg></div>
+        <p class="pillar-label">Chats</p>
       </div>
       <div class="pillar reveal reveal-scale">
         <div class="pillar-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
@@ -443,40 +468,40 @@
 <section id="how-it-works" class="section how-it-works reveal" aria-labelledby="how-it-works-heading">
   <div class="container">
     <h2 id="how-it-works-heading" class="section-title">How It Works</h2>
-    <p class="section-subtitle">From screenshots to a profile she stops on.</p>
+    <p class="section-subtitle">From screenshots to a profile she stops on and chats that turn into dates.</p>
 
     <div class="steps-grid">
       <div class="step-card reveal">
         <div class="step-content">
           <div class="step-number">01</div>
-          <h3 class="step-title">Send Your Profile</h3>
-          <p class="step-desc">Screenshot your full Hinge profile and upload it here. It takes about 2 minutes.</p>
+          <h3 class="step-title">Send Your Profile And Chats</h3>
+          <p class="step-desc">Screenshot your full Hinge profile and a few of your conversations, and upload them here. It takes about 3 minutes.</p>
         </div>
-        <div class="step-image-placeholder"><img src="assets/step-1.jpg" alt="Send your profile step" width="480" height="300" loading="lazy" /></div>
+        <div class="step-image-placeholder"><img src="assets/step-upload.svg" alt="Uploading profile and chat screenshots on a phone" width="480" height="300" loading="lazy" /></div>
       </div>
       <div class="step-card reveal">
         <div class="step-content">
           <div class="step-number">02</div>
-          <h3 class="step-title">I Review It On Camera</h3>
-          <p class="step-desc">I go through every photo and prompt and tell you exactly what's working and what's costing you likes. Honest, not cruel.</p>
+          <h3 class="step-title">I Score It Personally</h3>
+          <p class="step-desc">I go through your profile and chats myself, score them, and pick the fixes that will make the biggest difference.</p>
         </div>
-        <div class="step-image-placeholder"><img src="assets/step-4.jpg" alt="On camera review step" width="480" height="300" loading="lazy" /></div>
+        <div class="step-image-placeholder"><img src="assets/step-score.svg" alt="Scoring a dating profile on a checklist" width="480" height="300" loading="lazy" /></div>
       </div>
       <div class="step-card reveal">
         <div class="step-content">
           <div class="step-number">03</div>
-          <h3 class="step-title">You Get The Link</h3>
-          <p class="step-desc">When your review goes live on my socials, I email you the link, so you can watch it and see your top fixes.</p>
+          <h3 class="step-title">I Review It On Camera</h3>
+          <p class="step-desc">Every photo, every prompt and every message: what's working and what's costing you. Honest, not cruel.</p>
         </div>
-        <div class="step-image-placeholder"><img src="assets/step-2.jpg" alt="Get the link step" width="480" height="300" loading="lazy" /></div>
+        <div class="step-image-placeholder"><img src="assets/step-review.svg" alt="Recording an on camera review of a dating profile" width="480" height="300" loading="lazy" /></div>
       </div>
       <div class="step-card reveal">
         <div class="step-content">
           <div class="step-number">04</div>
-          <h3 class="step-title">Fix It</h3>
-          <p class="step-desc">Most fixes take an afternoon: a new lead photo, a rewritten prompt, an empty slot filled.</p>
+          <h3 class="step-title">You Get Your Scorecard</h3>
+          <p class="step-desc">Your scorecard lands in your inbox, and I send you the link the day your review goes live.</p>
         </div>
-        <div class="step-image-placeholder"><img src="assets/after3.jpg" alt="Fix it step" width="480" height="300" loading="lazy" /></div>
+        <div class="step-image-placeholder"><img src="assets/step-scorecard.svg" alt="A Hinge scorecard with category scores and top fixes" width="480" height="300" loading="lazy" /></div>
       </div>
     </div>
 
@@ -490,29 +515,29 @@
 <section id="guarantee" class="section guarantee-variant" aria-labelledby="guarantee-heading">
   <div class="container">
     <h2 id="guarantee-heading" class="section-title guarantee-title-center">What You Get</h2>
-    <p class="section-subtitle guarantee-subtitle-center">Free. The only price is that your review goes public, so other men learn from it too.</p>
+    <p class="section-subtitle guarantee-subtitle-center">Free, and done by me personally. The only price is that your review goes public, so other men learn from it too. You choose whether your face is shown.</p>
 
     <div class="guarantee-outcome-grid">
       <div class="guarantee-outcome-card guarantee-outcome-hit reveal reveal-left">
         <div class="guarantee-outcome-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 7h12v10H3zM15 10l6-3v10l-6-3"/></svg>
         </div>
-        <h3>An Honest Review</h3>
-        <p>Every photo and every prompt, looked at on camera. No flattery, no fluff.</p>
+        <h3>Your Scorecard</h3>
+        <p>Your profile and chats scored by me, with your top fixes in order. Sent to your inbox.</p>
       </div>
       <div class="guarantee-outcome-card guarantee-outcome-miss reveal reveal-scale">
         <div class="guarantee-outcome-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2" d="M4 6h16M4 12h10M4 18h7"/></svg>
         </div>
-        <h3>Your Top Fixes</h3>
-        <p>The changes that will make the biggest difference to your profile, in order.</p>
+        <h3>Profile Review</h3>
+        <p>Every photo and every prompt, on camera. What's working and what's costing you likes.</p>
       </div>
       <div class="guarantee-outcome-card guarantee-outcome-win reveal reveal-right">
         <div class="guarantee-outcome-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3z"/></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h12v8H7l-4 3zM9 16h8l4 3V9h-3"/></svg>
         </div>
-        <h3>Your Call On Privacy</h3>
-        <p>You choose whether your face is shown or blurred.</p>
+        <h3>Chat Review</h3>
+        <p>Where your conversations lose her, and what to send instead.</p>
       </div>
     </div>
 
@@ -537,6 +562,13 @@
       </details>
       <details class="faq-item reveal">
         <summary>
+          <span>What's in my scorecard?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <p class="faq-answer-body">Your profile and chats, scored by me personally: where you're strong, where you're losing her, and your top fixes in order. It comes by email, separate from the video.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
           <span>Will people see my face?</span>
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
         </summary>
@@ -544,10 +576,17 @@
       </details>
       <details class="faq-item reveal">
         <summary>
+          <span>Will you show the women in my chats?</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <p class="faq-answer-body">No. I blur her name and photos before anything is posted. If you can, crop them out before you upload.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>
           <span>What do I need to send?</span>
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
         </summary>
-        <p class="faq-answer-body">Screenshots of your full Hinge profile, top to bottom: every photo and every prompt. Usually 4 to 8 screenshots. Open Hinge, go to your profile, tap View, and screenshot as you scroll.</p>
+        <p class="faq-answer-body">Screenshots of your full Hinge profile, top to bottom: every photo and every prompt, usually 4 to 8 screenshots. Plus 1 to 3 of your conversations, from your first message to where it stopped. No chats yet? Send your profile only and I'll score that.</p>
       </details>
       <details class="faq-item reveal">
         <summary>
@@ -558,24 +597,24 @@
       </details>
       <details class="faq-item reveal">
         <summary>
-          <span>How long until my review is live?</span>
+          <span>How long until I get my scorecard?</span>
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
         </summary>
-        <p class="faq-answer-body">It depends on how many profiles are in the queue. I'll email you the link the day it goes up.</p>
+        <p class="faq-answer-body">It depends on how many profiles are in the queue. Your scorecard comes by email, and I send you the link the day your review goes up.</p>
       </details>
       <details class="faq-item reveal">
         <summary>
           <span>What happens to my screenshots?</span>
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
         </summary>
-        <p class="faq-answer-body">They're stored privately and only used for your review. If you want them deleted, reply to any email from me and I'll delete them.</p>
+        <p class="faq-answer-body">Your profile and chat screenshots are stored privately and only used for your scorecard and review. If you want them deleted, reply to any email from me and I'll delete them.</p>
       </details>
       <details class="faq-item reveal">
         <summary>
           <span>Will you roast me?</span>
           <svg class="faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="m6 9 6 6 6-6"/></svg>
         </summary>
-        <p class="faq-answer-body">No. Honest, not cruel. I'll tell you what's costing you likes, but the point is to fix your profile, not to make fun of you.</p>
+        <p class="faq-answer-body">No. Honest, not cruel. I'll tell you what's costing you likes and dates, but the point is to fix it, not to make fun of you.</p>
       </details>
       <details class="faq-item reveal">
         <summary>
@@ -616,11 +655,11 @@
 <!-- ================= FINAL CTA ================= -->
 <section id="final-cta" class="section final-cta reveal reveal-scale" aria-labelledby="final-cta-heading">
   <div class="container narrow">
-    <h2 id="final-cta-heading" class="section-title">Find out why she's swiping past you</h2>
-    <p class="final-cta-support">Send me your profile and get an honest, on camera review. Free.</p>
+    <h2 id="final-cta-heading" class="section-title">Ready to turn your profile into dates?</h2>
+    <p class="final-cta-support">Send me your profile and chats. Get your personal scorecard and an honest, on camera review. Free.</p>
 
     <a href="#apply" class="btn btn-primary" data-cta-location="final">Get My Free Review</a>
-    <p class="cta-sublabel">Takes about 2 minutes</p>
+    <p class="cta-sublabel">Takes about 3 minutes</p>
   </div>
 </section>
 
@@ -641,7 +680,7 @@
   <a href="#apply" class="btn btn-primary" data-cta-location="sticky">Get My Free Review</a>
 </div>
 
-<script src="js/main.js?v=20" defer></script>
+<script src="js/main.js?v=21" defer></script>
 <script src="js/results.js?v=2" defer></script>
 </body>
 </html>
