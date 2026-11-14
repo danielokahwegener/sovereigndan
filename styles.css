@@ -163,7 +163,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url("../assets/hero-bg.jpg");
+  background-image: url("hero-bg.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -1879,3 +1879,67 @@ html, body { overflow-x: clip; }
   margin-top: 12px;
 }
 .success-socials .btn { min-width: 120px; }
+
+/* Hero offer strip: the three things the free review includes */
+.hero-offer {
+  list-style: none;
+  margin: -24px 0 40px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+}
+.hero-offer li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  background: rgba(25, 23, 25, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.hero-offer b {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+.hero-offer-num {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #e4b9c2;
+  padding-top: 2px;
+}
+@media (max-width: 640px) {
+  .hero-offer { grid-template-columns: 1fr; gap: 8px; margin-bottom: 32px; }
+  .hero-offer li { padding: 10px 14px; }
+}
+/* With the offer strip between them, the subheadline gap rule no longer applies. */
+.hero-offer + .hero-form-label { margin-top: 0; }
+
+.form-step-note.upload-privacy { margin: 10px 0 0; font-size: 13px; }
+
+/* Small label above the hero headline */
+.hero-eyebrow {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 6px 14px;
+  border: 1px solid rgba(228, 185, 194, 0.45);
+  border-radius: 999px;
+  background: rgba(25, 23, 25, 0.35);
+  color: #e4b9c2;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

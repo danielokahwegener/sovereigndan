@@ -147,13 +147,13 @@
   const canAV1 = video.canPlayType('video/mp4; codecs="av01.0.08M.08"') !== "";
   const qualitySources = canAV1
     ? {
-        "1080p": { src: "assets/vsl-1080p.mp4", type: AV1 },
-        "720p": { src: "assets/vsl-720p.mp4", type: AV1 },
-        "480p": { src: "assets/vsl-480p.mp4", type: AV1 },
+        "1080p": { src: "vsl-1080p.mp4", type: AV1 },
+        "720p": { src: "vsl-720p.mp4", type: AV1 },
+        "480p": { src: "vsl-480p.mp4", type: AV1 },
       }
     : {
-        "720p": { src: "assets/vsl-720p-h264.mp4", type: H264 },
-        "480p": { src: "assets/vsl-480p-h264.mp4", type: H264 },
+        "720p": { src: "vsl-720p-h264.mp4", type: H264 },
+        "480p": { src: "vsl-480p-h264.mp4", type: H264 },
       };
 
   if (!canAV1) {
@@ -468,8 +468,9 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
 })();
 
 // ---------------------------------------------------------
-// Free profile review submission: 4 steps (what's not working,
-// about you, screenshots, details and consent). Screenshots are
+// Free scorecard + profile and chat review submission: 5 steps
+// (what's not working, about you, profile screenshots, chat
+// screenshots, details and consent). Screenshots are
 // shrunk in the browser, then everything is posted as JSON to the
 // Apps Script, which saves the images to Google Drive, logs a row
 // in the "Profile Submissions" tab and sends a Telegram alert.
@@ -489,13 +490,28 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
   const submitBtn = document.getElementById("formSubmit");
   const formAnchor = document.getElementById("apply");
 
-  const fileInput = document.getElementById("q_files");
-  const uploadGrid = document.getElementById("uploadGrid");
-  const uploadError = document.getElementById("uploadError");
   const submitError = document.getElementById("submitError");
 
-  const MIN_FILES = 2;
-  const MAX_FILES = 10;
+  // One uploader per [data-upload] box. Profile screenshots are
+  // required; chat screenshots are optional.
+  const UPLOAD_RULES = {
+    profile: { min: 2, max: 10, what: "profile" },
+    chat: { min: 0, max: 8, what: "chat" },
+  };
+  const uploaders = Array.from(wrapper.querySelectorAll("[data-upload]")).map((box) => {
+    const key = box.dataset.upload;
+    return {
+      key,
+      box,
+      input: box.querySelector('input[type="file"]'),
+      grid: box.querySelector(".upload-grid"),
+      error: box.querySelector(".upload-error"),
+      sub: box.querySelector(".upload-drop-sub"),
+      subDefault: box.querySelector(".upload-drop-sub")?.textContent || "",
+      rules: UPLOAD_RULES[key] || { min: 0, max: 10, what: key },
+      files: [], // { file, url }
+    };
+  });
   const MAX_SIDE = 1800; // px, keeps prompt text readable on tall phone screenshots
   const JPEG_QUALITY = 0.82;
 
@@ -506,7 +522,6 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
 
   let currentIndex = 0;
   let autoAdvanceTimer = null;
-  let files = []; // { file, url }
 
   function showStep(index, options) {
     options = options || {};
@@ -565,14 +580,15 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
       if (field.required && !field.checkValidity()) valid = false;
     });
 
-    if (stepEl.contains(fileInput)) {
-      if (files.length < MIN_FILES) {
-        uploadError.textContent = `Add at least ${MIN_FILES} screenshots of your profile.`;
+    uploaders.forEach((u) => {
+      if (!stepEl.contains(u.box)) return;
+      if (u.files.length < u.rules.min) {
+        u.error.textContent = `Add at least ${u.rules.min} screenshots of your ${u.rules.what}.`;
         valid = false;
       } else {
-        uploadError.textContent = "";
+        u.error.textContent = "";
       }
-    }
+    });
     return valid;
   }
 
@@ -601,40 +617,41 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
   });
 
   // ---------- screenshots ----------
-  function renderGrid() {
-    uploadGrid.textContent = "";
-    files.forEach((item, i) => {
+  function renderGrid(u) {
+    u.grid.textContent = "";
+    u.files.forEach((item, i) => {
       const tile = document.createElement("div");
       tile.className = "upload-tile";
       const img = document.createElement("img");
       img.src = item.url;
-      img.alt = `Screenshot ${i + 1}`;
+      img.alt = `${u.rules.what} screenshot ${i + 1}`;
       const remove = document.createElement("button");
       remove.type = "button";
       remove.className = "upload-remove";
-      remove.setAttribute("aria-label", `Remove screenshot ${i + 1}`);
+      remove.setAttribute("aria-label", `Remove ${u.rules.what} screenshot ${i + 1}`);
       remove.textContent = "×";
       remove.addEventListener("click", () => {
         URL.revokeObjectURL(item.url);
-        files.splice(i, 1);
-        renderGrid();
+        u.files.splice(i, 1);
+        renderGrid(u);
       });
       tile.append(img, remove);
-      uploadGrid.append(tile);
+      u.grid.append(tile);
     });
-    const drop = wrapper.querySelector(".upload-drop-sub");
-    if (drop) drop.textContent = files.length ? `${files.length} added, ${MAX_FILES - files.length} more allowed` : `${MIN_FILES} to ${MAX_FILES} images`;
-    if (files.length >= MIN_FILES) uploadError.textContent = "";
+    if (u.sub) u.sub.textContent = u.files.length ? `${u.files.length} added, ${u.rules.max - u.files.length} more allowed` : u.subDefault;
+    if (u.files.length >= u.rules.min) u.error.textContent = "";
   }
 
-  fileInput.addEventListener("change", () => {
-    const picked = Array.from(fileInput.files || []).filter((f) => f.type.startsWith("image/"));
-    const room = MAX_FILES - files.length;
-    picked.slice(0, room).forEach((file) => files.push({ file, url: URL.createObjectURL(file) }));
-    uploadError.textContent = picked.length > room ? `That's the maximum of ${MAX_FILES} screenshots. Remove one to add another.` : "";
-    fileInput.value = ""; // lets the same file be picked again after removing it
-    renderGrid();
-    track("screenshots_added", { count: files.length });
+  uploaders.forEach((u) => {
+    u.input.addEventListener("change", () => {
+      const picked = Array.from(u.input.files || []).filter((f) => f.type.startsWith("image/"));
+      const room = u.rules.max - u.files.length;
+      picked.slice(0, room).forEach((file) => u.files.push({ file, url: URL.createObjectURL(file) }));
+      u.error.textContent = picked.length > room ? `That's the maximum of ${u.rules.max} screenshots here. Remove one to add another.` : "";
+      u.input.value = ""; // lets the same file be picked again after removing it
+      renderGrid(u);
+      track("screenshots_added", { kind: u.key, count: u.files.length });
+    });
   });
 
   function loadImage(file) {
@@ -677,7 +694,7 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
     success.hidden = false;
     document.getElementById("successHeading").textContent = name ? `You're in, ${name}.` : "You're in.";
     document.getElementById("successText").textContent =
-      `Your profile is in my review queue. When your review goes live, I'll email the link to ${email}.`;
+      `Your profile is in my review queue. I'll email your scorecard to ${email}, and send you the link when your review goes live.`;
     success.querySelectorAll("[data-social]").forEach((a) =>
       a.addEventListener("click", () => track("success_social_click", { platform: a.dataset.social }))
     );
@@ -716,10 +733,13 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
     const label = submitBtn.textContent;
 
     try {
+      const queue = [];
+      uploaders.forEach((u) => u.files.forEach((item, i) => queue.push({ kind: u.key, n: i + 1, file: item.file })));
       const images = [];
-      for (let i = 0; i < files.length; i++) {
-        submitBtn.textContent = `Preparing ${i + 1} of ${files.length}...`;
-        images.push({ name: `screenshot-${String(i + 1).padStart(2, "0")}.jpg`, mime: "image/jpeg", data: await compress(files[i].file) });
+      for (let i = 0; i < queue.length; i++) {
+        submitBtn.textContent = `Preparing ${i + 1} of ${queue.length}...`;
+        const q = queue[i];
+        images.push({ kind: q.kind, name: `${q.kind}-${String(q.n).padStart(2, "0")}.jpg`, mime: "image/jpeg", data: await compress(q.file) });
       }
       submitBtn.textContent = "Sending...";
 
@@ -741,7 +761,12 @@ document.querySelectorAll("[data-cta-location]").forEach((el) => {
       const ok = SHEET_WEBHOOK_URL ? await send(payload) : true;
       if (!ok) throw new Error("server said no");
 
-      track("form_submitted", { screenshots: images.length, blur: payload.blur, tips: payload.tips });
+      track("form_submitted", {
+        profile_screenshots: images.filter((f) => f.kind === "profile").length,
+        chat_screenshots: images.filter((f) => f.kind === "chat").length,
+        blur: payload.blur,
+        tips: payload.tips,
+      });
       showSuccess(name, email);
     } catch (err) {
       submitError.textContent = "Your profile didn't send. Check your connection and try again, or DM me on Instagram.";

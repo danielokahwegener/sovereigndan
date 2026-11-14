@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#3a2a2e"/>
+      <stop offset="0.55" stop-color="#1e1719"/>
+      <stop offset="1" stop-color="#0d0b0c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#9c5966" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#9c5966" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f1ed"/>
+      <stop offset="1" stop-color="#e9ded6"/>
+    </linearGradient>
+    <linearGradient id="photoA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6e5a5c"/><stop offset="1" stop-color="#2a2124"/>
+    </linearGradient>
+    <linearGradient id="photoB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9c7f73"/><stop offset="1" stop-color="#3d2f2b"/>
+    </linearGradient>
+    <linearGradient id="photoC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5d6670"/><stop offset="1" stop-color="#23262b"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="26" stdDeviation="28" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <clipPath id="screen"><rect x="0" y="0" width="420" height="820" rx="44"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="800" cy="520" rx="640" ry="420" fill="url(#glow)"/>
+
+  <!-- chat screenshot card, behind, right -->
+  <g transform="translate(905 230) rotate(7)" filter="url(#shadow)">
+    <rect x="0" y="0" width="330" height="560" rx="30" fill="#191719"/>
+    <rect x="14" y="14" width="302" height="532" rx="22" fill="url(#paper)"/>
+    <circle cx="60" cy="62" r="20" fill="#cbbab1"/>
+    <rect x="92" y="52" width="110" height="18" rx="9" fill="#cbbab1"/>
+    <line x1="14" y1="100" x2="316" y2="100" stroke="#d9cbc2" stroke-width="2"/>
+    <rect x="36" y="130" width="170" height="44" rx="22" fill="#e3d6ce"/>
+    <rect x="124" y="194" width="170" height="44" rx="22" fill="#401b27"/>
+    <rect x="36" y="258" width="130" height="44" rx="22" fill="#e3d6ce"/>
+    <rect x="144" y="322" width="150" height="44" rx="22" fill="#401b27"/>
+    <rect x="36" y="386" width="200" height="44" rx="22" fill="#e3d6ce"/>
+    <rect x="36" y="482" width="258" height="40" rx="20" fill="none" stroke="#cbbab1" stroke-width="2"/>
+  </g>
+
+  <!-- profile screenshot card, behind, left -->
+  <g transform="translate(360 250) rotate(-8)" filter="url(#shadow)">
+    <rect x="0" y="0" width="330" height="560" rx="30" fill="#191719"/>
+    <rect x="14" y="14" width="302" height="532" rx="22" fill="url(#paper)"/>
+    <rect x="34" y="40" width="160" height="22" rx="11" fill="#191719" opacity="0.85"/>
+    <rect x="34" y="84" width="262" height="290" rx="16" fill="url(#photoB)"/>
+    <circle cx="165" cy="200" r="46" fill="#000" opacity="0.18"/>
+    <path d="M95 374 q70 -110 140 0 z" fill="#000" opacity="0.18"/>
+    <rect x="34" y="396" width="262" height="120" rx="16" fill="#ffffff"/>
+    <rect x="56" y="420" width="140" height="14" rx="7" fill="#cbbab1"/>
+    <rect x="56" y="452" width="210" height="20" rx="10" fill="#191719" opacity="0.8"/>
+    <rect x="56" y="482" width="150" height="20" rx="10" fill="#191719" opacity="0.8"/>
+  </g>
+
+  <!-- phone with the upload screen, front -->
+  <g transform="translate(590 90)" filter="url(#shadow)">
+    <rect x="-16" y="-16" width="452" height="852" rx="58" fill="#0f0d0e"/>
+    <g clip-path="url(#screen)">
+      <rect width="420" height="820" fill="url(#paper)"/>
+      <rect width="420" height="12" fill="#401b27"/>
+      <text x="40" y="96" font-size="17" font-weight="700" letter-spacing="3" fill="#9c5966">STEP 3 OF 5</text>
+      <text x="40" y="140" font-size="32" font-weight="800" fill="#191719">Upload Your Profile</text>
+
+      <rect x="40" y="176" width="340" height="150" rx="16" fill="#ffffff" stroke="#cbbab1" stroke-width="3" stroke-dasharray="10 8"/>
+      <path d="M210 270 V214 M188 236 l22 -22 l22 22" stroke="#401b27" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="170" y="284" width="80" height="6" rx="3" fill="#401b27"/>
+      <text x="210" y="314" text-anchor="middle" font-size="17" fill="#6e5a5c">Tap to add screenshots</text>
+
+      <!-- thumbnails -->
+      <g transform="translate(40 352)">
+        <rect x="0" y="0" width="104" height="184" rx="10" fill="url(#photoA)"/>
+        <rect x="118" y="0" width="104" height="184" rx="10" fill="url(#photoB)"/>
+        <rect x="236" y="0" width="104" height="184" rx="10" fill="url(#photoC)"/>
+        <rect x="0" y="198" width="104" height="184" rx="10" fill="url(#photoC)"/>
+        <rect x="118" y="198" width="104" height="184" rx="10" fill="url(#photoA)"/>
+        <rect x="236" y="198" width="104" height="184" rx="10" fill="#e3d6ce" stroke="#cbbab1" stroke-width="2" stroke-dasharray="8 6"/>
+        <path d="M288 274 v32 M272 290 h32" stroke="#9c5966" stroke-width="5" stroke-linecap="round"/>
+        <g fill="#191719" opacity="0.75">
+          <circle cx="88" cy="16" r="11"/><circle cx="206" cy="16" r="11"/><circle cx="324" cy="16" r="11"/>
+          <circle cx="88" cy="214" r="11"/><circle cx="206" cy="214" r="11"/>
+        </g>
+        <g stroke="#f6f1ed" stroke-width="3" stroke-linecap="round">
+          <path d="M84 12 l8 8 M92 12 l-8 8"/><path d="M202 12 l8 8 M210 12 l-8 8"/><path d="M320 12 l8 8 M328 12 l-8 8"/>
+          <path d="M84 210 l8 8 M92 210 l-8 8"/><path d="M202 210 l8 8 M210 210 l-8 8"/>
+        </g>
+      </g>
+
+      <rect x="40" y="754" width="340" height="40" rx="20" fill="#401b27"/>
+      <text x="210" y="780" text-anchor="middle" font-size="17" font-weight="700" fill="#f6f1ed">Next</text>
+    </g>
+  </g>
+</svg>

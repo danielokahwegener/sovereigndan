@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#3a2a2e"/>
+      <stop offset="0.55" stop-color="#1e1719"/>
+      <stop offset="1" stop-color="#0d0b0c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#9c5966" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#9c5966" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f1ed"/>
+      <stop offset="1" stop-color="#e9ded6"/>
+    </linearGradient>
+    <linearGradient id="photo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5d6670"/><stop offset="1" stop-color="#23262b"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4a2a33"/><stop offset="1" stop-color="#2a1419"/>
+    </linearGradient>
+    <linearGradient id="pen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a2426"/><stop offset="0.5" stop-color="#4a4044"/><stop offset="1" stop-color="#1a1517"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="0" dy="26" stdDeviation="28" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <clipPath id="screen"><rect x="0" y="0" width="300" height="600" rx="36"/></clipPath>
+  </defs>
+
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <ellipse cx="800" cy="520" rx="640" ry="420" fill="url(#glow)"/>
+
+  <!-- phone with his profile, left -->
+  <g transform="translate(355 250) rotate(-6)" filter="url(#shadow)">
+    <rect x="-14" y="-14" width="328" height="628" rx="48" fill="#0f0d0e"/>
+    <g clip-path="url(#screen)">
+      <rect width="300" height="600" fill="url(#paper)"/>
+      <rect x="22" y="40" width="120" height="18" rx="9" fill="#191719" opacity="0.85"/>
+      <rect x="22" y="76" width="256" height="300" rx="14" fill="url(#photo)"/>
+      <circle cx="150" cy="190" r="46" fill="#000" opacity="0.16"/>
+      <path d="M84 376 q66 -110 132 0 z" fill="#000" opacity="0.16"/>
+      <rect x="22" y="394" width="256" height="150" rx="14" fill="#ffffff"/>
+      <rect x="42" y="418" width="130" height="13" rx="6" fill="#cbbab1"/>
+      <rect x="42" y="446" width="200" height="18" rx="9" fill="#191719" opacity="0.8"/>
+      <rect x="42" y="474" width="160" height="18" rx="9" fill="#191719" opacity="0.8"/>
+      <rect x="42" y="502" width="120" height="18" rx="9" fill="#191719" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- clipboard with the scoring sheet -->
+  <g transform="translate(700 95) rotate(3)" filter="url(#shadow)">
+    <rect x="0" y="0" width="560" height="800" rx="26" fill="url(#board)"/>
+    <rect x="30" y="56" width="500" height="714" rx="12" fill="url(#paper)"/>
+    <rect x="190" y="-14" width="180" height="70" rx="16" fill="#b8a9a2"/>
+    <rect x="230" y="6" width="100" height="22" rx="11" fill="#8f817b"/>
+
+    <text x="70" y="138" font-size="20" font-weight="700" letter-spacing="4" fill="#9c5966">SCORING SHEET</text>
+    <line x1="70" y1="162" x2="490" y2="162" stroke="#d9cbc2" stroke-width="2"/>
+
+    <g font-size="23" fill="#191719">
+      <!-- row: ticked box, label, score -->
+      <g transform="translate(0 214)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#401b27" stroke-width="3"/>
+        <path d="M76 -2 l8 9 l16 -20" stroke="#401b27" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="124" y="7">Physique</text>
+        <text x="490" y="7" text-anchor="end" font-weight="800" fill="#401b27">7</text>
+      </g>
+      <g transform="translate(0 284)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#401b27" stroke-width="3"/>
+        <path d="M76 -2 l8 9 l16 -20" stroke="#401b27" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="124" y="7">Style</text>
+        <text x="490" y="7" text-anchor="end" font-weight="800" fill="#401b27">8</text>
+      </g>
+      <g transform="translate(0 354)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#9c5966" stroke-width="3"/>
+        <path d="M78 -10 l16 16 M94 -10 l-16 16" stroke="#9c5966" stroke-width="4" stroke-linecap="round"/>
+        <text x="124" y="7">Photo setting</text>
+        <text x="490" y="7" text-anchor="end" font-weight="800" fill="#9c5966">4</text>
+      </g>
+      <g transform="translate(0 424)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#401b27" stroke-width="3"/>
+        <path d="M76 -2 l8 9 l16 -20" stroke="#401b27" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="124" y="7">Presence</text>
+        <text x="490" y="7" text-anchor="end" font-weight="800" fill="#401b27">8</text>
+      </g>
+      <g transform="translate(0 494)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#9c5966" stroke-width="3"/>
+        <path d="M78 -10 l16 16 M94 -10 l-16 16" stroke="#9c5966" stroke-width="4" stroke-linecap="round"/>
+        <text x="124" y="7">Prompts</text>
+        <text x="490" y="7" text-anchor="end" font-weight="800" fill="#9c5966">3</text>
+      </g>
+      <g transform="translate(0 564)">
+        <rect x="70" y="-18" width="32" height="32" rx="6" fill="none" stroke="#cbbab1" stroke-width="3"/>
+        <text x="124" y="7" fill="#8f817b">Chats</text>
+        <rect x="452" y="-14" width="38" height="26" rx="6" fill="none" stroke="#cbbab1" stroke-width="3" stroke-dasharray="6 5"/>
+      </g>
+    </g>
+
+    <line x1="70" y1="620" x2="490" y2="620" stroke="#d9cbc2" stroke-width="2"/>
+    <rect x="70" y="650" width="420" height="16" rx="8" fill="#e3d6ce"/>
+    <rect x="70" y="684" width="300" height="16" rx="8" fill="#e3d6ce"/>
+    <!-- handwritten circle around the lowest score -->
+    <ellipse cx="482" cy="490" rx="34" ry="30" fill="none" stroke="#c2566b" stroke-width="5" transform="rotate(-8 482 490)"/>
+  </g>
+
+  <!-- pen -->
+  <g transform="translate(1120 690) rotate(-38)" filter="url(#shadow)">
+    <rect x="0" y="-13" width="340" height="26" rx="13" fill="url(#pen)"/>
+    <path d="M0 -13 L-46 0 L0 13 z" fill="#b8a9a2"/>
+    <path d="M-46 0 l12 -3.5 v7 z" fill="#191719"/>
+    <rect x="250" y="-16" width="14" height="32" rx="4" fill="#9c5966"/>
+  </g>
+</svg>
